@@ -84,3 +84,27 @@ def transcribe_audio(
 def transcribe_text_input(text: str) -> str:
     """Bypass STT when user types instead of speaking (debug / accessibility)."""
     return (text or "").strip()
+
+
+def transcribe_audio_path(
+    path: str,
+    *,
+    model_name: str = "base",
+    language: str | None = "en",
+) -> str:
+    """
+    Transcribe an audio file (wav, mp3, webm, etc.) using Whisper.
+
+    Requires ffmpeg on the system for many formats (Whisper dependency).
+    """
+    path = (path or "").strip()
+    if not path:
+        return ""
+
+    model = _load_whisper(model_name)
+    kwargs: dict[str, Any] = {"fp16": False}
+    if language:
+        kwargs["language"] = language
+
+    result = model.transcribe(path, **kwargs)
+    return (result.get("text") or "").strip()

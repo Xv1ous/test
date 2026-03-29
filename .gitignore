@@ -5,3 +5,4 @@ venv/
 voice_agent/_tts_cache/
 voice_agent/interaction_log.txt
 *.wav
+*.mp3

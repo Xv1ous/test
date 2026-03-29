@@ -7,6 +7,7 @@ Voice admissions assistant — run from project root:
 
 First launch downloads SentenceTransformer and Whisper weights (can take several minutes).
 For typed-only testing without the web UI: `python cli_demo.py "your question"`
+For HTTP API (Flutter): `uvicorn api:app --host 0.0.0.0 --port 8000`
 """
 
 from __future__ import annotations
@@ -16,6 +17,7 @@ from pathlib import Path
 
 import gradio as gr
 
+from voice_agent.config import TTS_ENGINE
 from voice_agent.nlp_module import get_capability_statement, load_qa_corpus
 from voice_agent.pipeline import run_text_turn, run_voice_turn
 
@@ -28,21 +30,26 @@ logger = logging.getLogger(__name__)
 def build_ui():
     load_qa_corpus()
     disclosure = get_capability_statement()
+    tts_note = "gTTS (MP3, needs internet)" if TTS_ENGINE != "pyttsx3" else "pyttsx3 (local WAV)"
 
     def on_voice(audio):
-        transcript, reply, audio_path, conf = run_voice_turn(audio, log_path=LOG_FILE)
-        return transcript, reply, conf, audio_path
+        r = run_voice_turn(audio, log_path=LOG_FILE)
+        if not r.ok:
+            return "", r.error or "Error", "error", None
+        return r.transcript, r.agent_text, r.confidence, r.audio_path
 
     def on_text(text):
-        transcript, reply, audio_path, conf = run_text_turn(text, log_path=LOG_FILE)
-        return transcript, reply, conf, audio_path
+        r = run_text_turn(text, log_path=LOG_FILE)
+        if not r.ok:
+            return "", r.error or "Error", "error", None
+        return r.transcript, r.agent_text, r.confidence, r.audio_path
 
     with gr.Blocks(title="Voice Admissions Prototype") as demo:
         gr.Markdown(
             "## Voice-based conversational AI (prototype)\n\n"
             f"**Capability disclosure:** {disclosure}\n\n"
             "Record a question via microphone, or type below. The system uses **Whisper** (STT), "
-            "**semantic retrieval** over a small Q&A set (NLP), and **pyttsx3** (TTS)."
+            f"**semantic retrieval** over a small Q&A set (NLP), and **{tts_note}** (TTS)."
         )
         with gr.Row():
             audio_in = gr.Audio(sources=["microphone"], type="numpy", label="Your voice")
