@@ -1,0 +1,65 @@
+{
+  "capability_statement": "I am a research prototype. I answer using a small, curated knowledge base about university admissions. I am not the official admissions office—please verify deadlines and requirements on the university website.",
+  "pairs": [
+    {
+      "q": "When is the application deadline for undergraduate programs?",
+      "a": "Deadlines depend on the program and intake term. Many fall programs close between January and March, but you should confirm the exact date on the official admissions calendar for your chosen program."
+    },
+    {
+      "q": "What documents do I need to submit with my application?",
+      "a": "Typically you need transcripts, proof of identity, and any program-specific items such as portfolios or test scores. Check the program’s application checklist for the definitive list."
+    },
+    {
+      "q": "How do I apply as an international student?",
+      "a": "International applicants usually submit the same core application plus proof of English proficiency and study permit documentation after an offer. Requirements vary by country—use the international admissions guide for specifics."
+    },
+    {
+      "q": "What English proficiency tests are accepted?",
+      "a": "Many institutions accept IELTS Academic, TOEFL iBT, or equivalent tests. Minimum scores and exemptions differ by program; refer to the official English language requirements page."
+    },
+    {
+      "q": "Can I defer my admission?",
+      "a": "Deferral policies vary. Some programs allow a one-term or one-year deferral with approval; others do not. Contact admissions or your program office with your student ID and offer details."
+    },
+    {
+      "q": "How long does it take to receive an admission decision?",
+      "a": "Timelines vary by program and application volume. Rolling admissions may respond within a few weeks; competitive programs may take longer. Your applicant portal usually shows the current status."
+    },
+    {
+      "q": "What is the tuition fee for domestic students?",
+      "a": "Tuition depends on program, credit load, and year of study. Use the official tuition and fee estimator for the most accurate figures rather than relying on informal estimates."
+    },
+    {
+      "q": "Are scholarships available for new students?",
+      "a": "Many universities offer entrance scholarships based on grades or holistic criteria, plus bursaries for financial need. Review the financial aid and awards pages and note separate deadlines."
+    },
+    {
+      "q": "How can I check my application status?",
+      "a": "Log in to the applicant portal you used to apply. Status updates, document requests, and decisions are usually posted there. If something looks stuck, contact admissions with your application reference number."
+    },
+    {
+      "q": "Can I transfer credits from another institution?",
+      "a": "Transfer credit evaluation happens after admission and depends on course equivalency and grades. Submit official transcripts and syllabi when requested; the registrar or program advisor confirms what transfers."
+    },
+    {
+      "q": "What is early admission?",
+      "a": "Early admission offers decisions before the regular round for applicants who meet criteria and apply by an earlier deadline. Benefits and rules differ by institution—read the early admission policy carefully."
+    },
+    {
+      "q": "Do I need a personal statement or essay?",
+      "a": "Some programs require a statement of interest or supplementary essays. Length and prompts are program-specific. Follow the word limits and prompts in the application portal exactly."
+    },
+    {
+      "q": "How do I contact the admissions office?",
+      "a": "Use the official admissions contact form, email, or phone listed on the university website. Include your application reference number and program name to get a faster, accurate reply."
+    },
+    {
+      "q": "What happens if I miss a document deadline?",
+      "a": "Missing documents can delay review or make an application incomplete. Upload materials as soon as possible and notify admissions; they will tell you if the file can still be considered."
+    },
+    {
+      "q": "Can I change my program choice after applying?",
+      "a": "Policies differ. Some portals allow a program change before a cutoff; others require a new application. Ask admissions immediately if your goals change."
+    }
+  ]
+}

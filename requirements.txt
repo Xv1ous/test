@@ -1,0 +1,13 @@
+# Voice conversational AI prototype (STT → NLP → TTS)
+# Python 3.10+ recommended on Windows
+#
+# Note: Gradio 5.x pairs with huggingface_hub 1.x (required by current transformers).
+
+openai-whisper>=20231117
+torch>=2.0.0
+numpy>=1.24.0
+sentence-transformers>=2.2.0
+pyttsx3>=2.90
+gradio>=5.0,<6.0
+huggingface_hub>=1.5,<2.0
+scipy>=1.11.0

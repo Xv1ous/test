@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+voice_agent/_tts_cache/
+voice_agent/interaction_log.txt
+*.wav
